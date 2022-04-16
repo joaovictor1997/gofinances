@@ -44,6 +44,7 @@ const schema = Yup.object().shape({
     .number()
     .typeError('Informe um valor Numérico')
     .positive('O valor não pode ser Negativo')
+    .required('O valor é Obrigatório')
 });
 
 export function Register() {
@@ -97,7 +98,6 @@ export function Register() {
 
     try {
       const dataKey = '@gofinances:transactions';
-
       const data = await AsyncStorage.getItem(dataKey);
       const currentData = data ? JSON.parse(data) : [];
 
